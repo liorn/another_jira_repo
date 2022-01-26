@@ -1,0 +1,83 @@
+jira.Board Engineering {
+  name = "Engineering"
+  type = "kanban"
+  admins = {
+    users = [
+      {
+        displayName = "Hadar Davidovich"
+        active = true
+        accountId = "5c728d29d48a17049c3adb86"
+        avatarUrls = {
+          "16x16" = "https://secure.gravatar.com/avatar/6a9cccd00aecd73921138c884c7f4f76?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FHD-2.png"
+          "24x24" = "https://secure.gravatar.com/avatar/6a9cccd00aecd73921138c884c7f4f76?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FHD-2.png"
+          "32x32" = "https://secure.gravatar.com/avatar/6a9cccd00aecd73921138c884c7f4f76?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FHD-2.png"
+          "48x48" = "https://secure.gravatar.com/avatar/6a9cccd00aecd73921138c884c7f4f76?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FHD-2.png"
+        }
+      },
+    ]
+  }
+  location = {
+    projectId = 10044
+  }
+  canEdit = false
+  config = {
+    name = "Engineering"
+    type = "kanban"
+    location = {
+      type = "project"
+      additionalProperties = {
+        key = "SAAS"
+        id = "10044"
+        name = "Salto SaaS"
+      }
+    }
+    subQuery = {
+      query = "fixVersion in unreleasedVersions() OR fixVersion is EMPTY"
+    }
+    columnConfig = {
+      columns = [
+        {
+          name = "Backlog"
+          statuses = [
+            jira.Status.instance.Pending,
+          ]
+        },
+        {
+          name = "Planning"
+          statuses = [
+            jira.Status.instance.PM,
+            jira.Status.instance.Design,
+          ]
+        },
+        {
+          name = "To Do"
+          statuses = [
+            jira.Status.instance.To_Do@s,
+          ]
+        },
+        {
+          name = "In Progress"
+          statuses = [
+            jira.Status.instance.In_Progress@s,
+            jira.Status.instance.In_Review@s,
+            jira.Status.instance.IN_DESIGN_REVIEW@s,
+          ]
+        },
+        {
+          name = "Done"
+          statuses = [
+            jira.Status.instance.Done,
+            jira.Status.instance.Closed,
+            jira.Status.instance.Won_t_Fix@ts,
+            jira.Status.instance.CANNOT_REPRODUCE@s,
+          ]
+        },
+      ]
+      constraintType = "issueCountExclSubs"
+    }
+    ranking = {
+      rankCustomFieldId = 10022
+    }
+  }
+  filterId = jira.Filter.instance.Filter_for_WIP@s
+}
