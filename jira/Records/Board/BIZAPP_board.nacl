@@ -1,0 +1,68 @@
+jira.Board BIZAPP_board@s {
+  name = "BIZAPP board"
+  type = "simple"
+  admins = {
+    users = [
+      {
+        displayName = "Hadas Birin"
+        active = true
+        accountId = "5e5e289fc8ec310c955d2d15"
+        avatarUrls = {
+          "16x16" = "https://secure.gravatar.com/avatar/f425cc752fb470820ce67ebc54e863fb?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FHB-1.png"
+          "24x24" = "https://secure.gravatar.com/avatar/f425cc752fb470820ce67ebc54e863fb?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FHB-1.png"
+          "32x32" = "https://secure.gravatar.com/avatar/f425cc752fb470820ce67ebc54e863fb?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FHB-1.png"
+          "48x48" = "https://secure.gravatar.com/avatar/f425cc752fb470820ce67ebc54e863fb?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FHB-1.png"
+        }
+      },
+    ]
+  }
+  location = {
+    projectId = 10045
+  }
+  canEdit = false
+  config = {
+    name = "BIZAPP board"
+    type = "simple"
+    location = {
+      type = "project"
+      additionalProperties = {
+        key = "BIZAPP"
+        id = "10045"
+        name = "BizApps"
+      }
+    }
+    columnConfig = {
+      columns = [
+        {
+          name = "To Do"
+          statuses = [
+            {
+              id = "10076"
+            },
+          ]
+        },
+        {
+          name = "In Progress"
+          statuses = [
+            {
+              id = "10077"
+            },
+          ]
+        },
+        {
+          name = "Done"
+          statuses = [
+            {
+              id = "10078"
+            },
+          ]
+        },
+      ]
+      constraintType = "none"
+    }
+    ranking = {
+      rankCustomFieldId = 10022
+    }
+  }
+  filterId = "10045"
+}
