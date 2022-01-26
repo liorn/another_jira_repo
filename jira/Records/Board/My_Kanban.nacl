@@ -1,0 +1,82 @@
+jira.Board My_Kanban@s {
+  name = "My Kanban"
+  type = "kanban"
+  admins = {
+    users = [
+      {
+        displayName = "Guy Kremnitzer"
+        active = true
+        accountId = "5e16e36d8dfdd40ec489ac51"
+        avatarUrls = {
+          "16x16" = "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5e16e36d8dfdd40ec489ac51/a3a11925-765c-4d86-8326-c6c11b279f3a/16"
+          "24x24" = "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5e16e36d8dfdd40ec489ac51/a3a11925-765c-4d86-8326-c6c11b279f3a/24"
+          "32x32" = "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5e16e36d8dfdd40ec489ac51/a3a11925-765c-4d86-8326-c6c11b279f3a/32"
+          "48x48" = "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5e16e36d8dfdd40ec489ac51/a3a11925-765c-4d86-8326-c6c11b279f3a/48"
+        }
+      },
+    ]
+  }
+  location = {
+    userId = 10030
+    userAccountId = "5e16e36d8dfdd40ec489ac51"
+  }
+  canEdit = false
+  config = {
+    name = "My Kanban"
+    type = "kanban"
+    location = {
+      type = "user"
+      additionalProperties = {
+        id = "5e16e36d8dfdd40ec489ac51"
+      }
+    }
+    subQuery = {
+      query = "fixVersion in unreleasedVersions() OR fixVersion is EMPTY"
+    }
+    columnConfig = {
+      columns = [
+        {
+          name = "Backlog"
+          statuses = [
+            jira.Status.instance.Pending,
+            jira.Status.instance.Design,
+            jira.Status.instance.PM,
+          ]
+        },
+        {
+          name = "To Do"
+          statuses = [
+            jira.Status.instance.To_Do@s,
+          ]
+        },
+        {
+          name = "In Progress"
+          statuses = [
+            jira.Status.instance.IN_DESIGN_REVIEW@s,
+            jira.Status.instance.In_Progress@s,
+          ]
+        },
+        {
+          name = "In Review"
+          statuses = [
+            jira.Status.instance.In_Review@s,
+          ]
+        },
+        {
+          name = "Done"
+          statuses = [
+            jira.Status.instance.Done,
+            jira.Status.instance.CANNOT_REPRODUCE@s,
+            jira.Status.instance.Won_t_Fix@ts,
+            jira.Status.instance.Closed,
+          ]
+        },
+      ]
+      constraintType = "issueCount"
+    }
+    ranking = {
+      rankCustomFieldId = 10022
+    }
+  }
+  filterId = jira.Filter.instance.Filter_for_My_Kanban@s
+}
